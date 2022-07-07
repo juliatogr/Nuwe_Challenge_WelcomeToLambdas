@@ -7,20 +7,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.stream.IntStream;
 
-@FunctionalInterface
-interface BooleanFunction{
-	boolean run(int n);
-}
-
 class MyLambda {
-
-	
-//	public boolean isOdd(int n) {
-//		return ;
-//	}
-//	
+	interface BooleanFunction{
+		boolean run(int n);
+	}
 	
 	BooleanFunction isOdd = (n) -> {return (n>0 && n%2 != 0)? false: true;};
+	
 	BooleanFunction isPrime = (n) -> {
 		for (int i=2; i<n; i++) {
 			if (n%i == 0) {
@@ -28,6 +21,7 @@ class MyLambda {
 			}
 		}
 		return true;};
+		
 	BooleanFunction isPalindrome = (n) -> {
 		String strNum = String.valueOf(n);
 		int numChars = strNum.length();
