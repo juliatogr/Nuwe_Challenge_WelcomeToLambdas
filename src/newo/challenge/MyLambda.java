@@ -33,15 +33,19 @@ class MyLambda {
 		return true;};
 	
 	public List<List<String>> checker(List<Integer> nums) {
-		
-		
+
 		List<List<String>> result = new ArrayList<List<String>>();
 		nums.forEach((n) ->{ 
 			List<String> charac = new ArrayList<String>();
 			charac.add("input:"+String.valueOf(n));
-			charac.add("isOdd:"+String.valueOf(isOdd.run(n)));
-			charac.add("isPrime:"+String.valueOf(isPrime.run(n)));
-			charac.add("isPalindrome:"+String.valueOf(isPalindrome.run(n)));
+			if (n <= 0) {
+				charac.add("NOT A POSSIBLE OPTION");
+			} else {
+				charac.add("isOdd:"+String.valueOf(isOdd.run(n)));
+				charac.add("isPrime:"+String.valueOf(isPrime.run(n)));
+				charac.add("isPalindrome:"+String.valueOf(isPalindrome.run(n)));
+			}
+
 			result.add(charac);});
 		return result;
 	}
